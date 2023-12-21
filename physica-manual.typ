@@ -789,14 +789,25 @@ In the default font, the Typst built-in symbol `planck.reduce` $planck.reduce$ l
 
 #v(1em)
 
-Matrix transposition can be simply written as `..^T`, where the `T` will be
-formatted properly to represent transposition instead of a normal letter $T$.
-This conversion is disabled if the base is integral symbol.
+Matrix transposition can be simply written as `..^T`, just like handwriting,
+and the `T` will be formatted properly to represent transposition instead of a
+normal letter $T$. This conversion is disabled if the base is an integral symbol.
+As a fallback, this package also provides symbol `TT` to represent the
+transpose: `A^TT`.
 
 To enable this feature, users need to first import this and call
 ```typ
 #import "...(this physica package)...": super-T-as-transpose
 #show: super-T-as-transpose
+```
+
+If you'd like to only apply this show rule within a scope, you may do
+```typ
+#import "...(this physica package)...": super-T-as-transpose
+#[
+  #show: super-T-as-transpose
+  ...  // Only enabled inside this #[..] scope.
+]
 ```
 
 #align(center, [*Examples*])
